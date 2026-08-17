@@ -449,7 +449,7 @@ function App() {
       <section className="hero" id="home">
         <div className="wrap">
           <div className="reveal">
-            <span className="eyebrow">Agence de services informatiques à Dakar</span>
+            <span className="eyebrow">Services et conseil en informatique à Dakar</span>
             <h1>
               Transformez vos ambitions en <em>solutions numériques</em>
             </h1>
