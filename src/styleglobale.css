@@ -1,0 +1,18 @@
+:root{
+  --bg: #F7F7F7;
+  --surface: #FFFFFF;
+  --ink: #0F3D5C;
+  --ink-soft: rgba(15,61,92,0.75);
+  --ink-faint: rgba(15,61,92,0.5);
+  --gold: #0F3D5C;
+  --teal: #2FAF76;
+  --teal-deep: #0F3D5C;
+  --line: rgba(15,61,92,0.15);
+  --shadow: 0 10px 30px -12px rgba(15,61,92,0.16);
+  --radius-sm: 10px;
+  --radius: 16px;
+  --radius-lg: 20px;
+  --section-padding: 64px;
+  --ease: cubic-bezier(.22,1,.36,1);
+  --dur: .25s;
+}
