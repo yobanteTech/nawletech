@@ -1,5 +1,6 @@
 :root{
-  --bg: #F7F7F7;
+  --bg: #F6F8FA;
+  --bg-tint: #EDF2F5;
   --surface: #FFFFFF;
   --ink: #0F3D5C;
   --ink-soft: rgba(15,61,92,0.75);
@@ -7,12 +8,15 @@
   --gold: #0F3D5C;
   --teal: #2FAF76;
   --teal-deep: #0F3D5C;
-  --line: rgba(15,61,92,0.15);
+  --teal-dark: #1E9160;
+  --line: rgba(15,61,92,0.14);
+  --line-soft: rgba(15,61,92,0.08);
   --shadow: 0 10px 30px -12px rgba(15,61,92,0.16);
+  --shadow-lg: 0 26px 60px -24px rgba(15,61,92,0.30);
   --radius-sm: 10px;
   --radius: 16px;
   --radius-lg: 20px;
-  --section-padding: 64px;
+  --section-padding: clamp(56px, 7vw, 96px);
   --ease: cubic-bezier(.22,1,.36,1);
   --dur: .25s;
 }
