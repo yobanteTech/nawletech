@@ -249,6 +249,28 @@ function useBackToTop() {
   return { show, scrollToTop };
 }
 
+function useCleanAnchorScroll() {
+  useEffect(() => {
+    const onClick = (e: MouseEvent) => {
+      const link = (e.target as HTMLElement).closest("a[href^='#']") as HTMLAnchorElement | null;
+      if (!link) return;
+      const hash = link.getAttribute("href") || "";
+      e.preventDefault();
+      if (hash.length <= 1) {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        return;
+      }
+      const target = document.getElementById(hash.slice(1));
+      if (target) {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        target.scrollIntoView({ behavior: reduceMotion ? "auto" : "smooth", block: "start" });
+      }
+    };
+    document.addEventListener("click", onClick);
+    return () => document.removeEventListener("click", onClick);
+  }, []);
+}
+
 const NAV_LINKS = [
   { href: "#home", label: "Accueil" },
   { href: "#services", label: "Nos services" },
@@ -301,6 +323,7 @@ function App() {
   const [menuOpen, setMenuOpen] = useState(false);
   useRevealOnScroll();
   useMeshCanvas(canvasRef);
+  useCleanAnchorScroll();
   const { show: showBackToTop, scrollToTop } = useBackToTop();
 
   useEffect(() => {
