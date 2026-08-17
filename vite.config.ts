@@ -46,22 +46,6 @@ export default defineConfig({
             "isValidElement",
           ],
         },
-        {
-          "react-router-dom": [
-            "useNavigate",
-            "useLocation",
-            "useParams",
-            "useSearchParams",
-            "Link",
-            "NavLink",
-            "Navigate",
-            "Outlet",
-          ],
-        },
-        // React i18n
-        {
-          "react-i18next": ["useTranslation", "Trans"],
-        },
       ],
       dts: true,
     }),
