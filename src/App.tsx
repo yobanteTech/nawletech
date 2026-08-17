@@ -407,7 +407,8 @@ function App() {
       <header>
         <nav className="wrap">
           <a href="#home" className="logo">
-            <img src="/logonawle1.png" alt="Nawle Tech" className="logo-full" />
+            <img src="/nawletech-icon.png" alt="" className="logo-mark" aria-hidden="true" />
+            <span className="logo-name">Nawle<span className="logo-accent">tech</span></span>
           </a>
           <div className="nav-links">
             {NAV_LINKS.map((l) => (
@@ -742,7 +743,8 @@ function App() {
           <div className="footer-grid">
             <div className="footer-brand">
               <a href="#home" className="logo">
-                <img src="/logonawle1.png" alt="Nawle Tech" className="logo-full" />
+                <img src="/nawletech-icon.png" alt="" className="logo-mark" aria-hidden="true" />
+                <span className="logo-name">Nawle<span className="logo-accent">tech</span></span>
               </a>
               <p>
                 Des solutions digitales qui font grandir vos ambitions. Sites web, applications,
