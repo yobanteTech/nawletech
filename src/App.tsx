@@ -644,7 +644,7 @@ function App() {
                 <div className="reveal">
                   <span className="ico" aria-hidden="true"><Icon name="phone" /></span>
                   <div>
-                    <span>+221 181 81 37</span>
+                    <span>+221 76 181 81 37</span>
                   </div>
                 </div>
                 <div className="reveal">
@@ -780,7 +780,7 @@ function App() {
               <h4>Contact</h4>
               <ul>
                 <li className="contact-line"><span className="ico-sm"><Icon name="pin" /></span><span>Rue FA-11, Fass, Dakar, Sénégal</span></li>
-                <li className="contact-line"><span className="ico-sm"><Icon name="phone" /></span><span>+221 181 81 37</span></li>
+                <li className="contact-line"><span className="ico-sm"><Icon name="phone" /></span><span>+221 76 181 81 37</span></li>
                 <li className="contact-line"><span className="ico-sm"><Icon name="mail" /></span><span>nawletech@gmail.com</span></li>
               </ul>
             </div>
@@ -792,7 +792,7 @@ function App() {
       </footer>
 
       <a
-        href="https://wa.me/2211818137"
+        href="https://wa.me/221761818137"
         target="_blank"
         rel="noopener"
         className="whatsapp-float"
