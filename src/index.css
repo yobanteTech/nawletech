@@ -556,10 +556,10 @@ footer{ background: var(--surface); color: var(--ink-soft); padding: 40px 0 0; p
   .burger{ display:flex; }
   .mobile-menu{ display:flex; }
   .hero .wrap{ grid-template-columns: 1fr; }
-  .hero-visual{ order:-1; max-width: 420px; margin:0 auto; }
+  .hero-visual{ order:-1; width:100%; max-width: 420px; margin:0 auto; }
   .service-grid{ grid-template-columns: repeat(2,1fr); }
   .about .wrap{ grid-template-columns: 1fr; }
-  .network-visual{ max-width: 420px; margin: 8% auto 6%; }
+  .network-visual{ width:100%; max-width: 420px; margin: 8% auto 6%; }
   .contact-panel{ grid-template-columns: 1fr; padding: 24px 22px; }
   .testi-card{ grid-template-columns: 1fr; padding: 22px 24px; }
   .sector-row{ justify-content:center; }
