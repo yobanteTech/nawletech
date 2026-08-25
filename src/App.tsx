@@ -114,6 +114,43 @@ function Icon({ name }: { name: string }) {
   return <>{ICONS[name]}</>;
 }
 
+function ResponsivePhoto({
+  base,
+  alt,
+  className,
+  sizes,
+  priority,
+  style,
+}: {
+  base: string;
+  alt: string;
+  className?: string;
+  sizes: string;
+  priority?: boolean;
+  style?: React.CSSProperties;
+}) {
+  return (
+    <picture>
+      <source
+        type="image/webp"
+        srcSet={`/img/${base}-800.webp 800w, /img/${base}-1400.webp 1400w`}
+        sizes={sizes}
+      />
+      <img
+        src={`/img/${base}-1400.jpg`}
+        srcSet={`/img/${base}-800.jpg 800w, /img/${base}-1400.jpg 1400w`}
+        sizes={sizes}
+        alt={alt}
+        className={className}
+        style={style}
+        loading={priority ? "eager" : "lazy"}
+        decoding="async"
+        fetchPriority={priority ? "high" : "auto"}
+      />
+    </picture>
+  );
+}
+
 function useRevealOnScroll() {
   useEffect(() => {
     const revealEls = document.querySelectorAll(".reveal");
@@ -318,6 +355,67 @@ const SERVICES = [
   },
 ];
 
+const NETWORK_PHOTOS = [
+  {
+    x: 22, y: 30, r: 32,
+    base: "marvin-meyer-SYTO3xs06fU-unsplash",
+    alt: "Équipe Nawle Tech collaborant autour d'un projet",
+    cls: "network-photo-1",
+  },
+  {
+    x: 62, y: 26, r: 32,
+    base: "daniil-komov-kAM9s_t1igY-unsplash",
+    alt: "Session de développement logiciel chez Nawle Tech",
+    cls: "network-photo-2",
+  },
+  {
+    x: 30, y: 74, r: 32,
+    base: "flyd-mT7lXZPjk7U-unsplash",
+    alt: "Sécurité informatique et protection des données chez Nawle Tech",
+    cls: "network-photo-3",
+  },
+  {
+    x: 70, y: 72, r: 34,
+    base: "compagnons-4G3vzMnC34M-unsplash",
+    alt: "Ingénieure Nawle Tech travaillant sur plusieurs écrans",
+    cls: "network-photo-4",
+  },
+];
+
+const NETWORK_DOTS = [
+  { x: 5, y: 10, r: 3.4, c: "teal" },
+  { x: 44, y: 6, r: 4.4, c: "ink" },
+  { x: 82, y: 8, r: 3, c: "teal" },
+  { x: 95, y: 28, r: 4, c: "ink" },
+  { x: 4, y: 48, r: 3.4, c: "ink" },
+  { x: 44, y: 46, r: 5, c: "teal" },
+  { x: 90, y: 52, r: 3.4, c: "ink" },
+  { x: 3, y: 88, r: 4, c: "teal" },
+  { x: 48, y: 92, r: 3.4, c: "ink" },
+  { x: 92, y: 86, r: 4.4, c: "teal" },
+];
+
+const NETWORK_LINES: [number, number, number, number][] = [
+  [5, 10, 22, 30],
+  [5, 10, 44, 6],
+  [44, 6, 82, 8],
+  [82, 8, 95, 28],
+  [82, 8, 62, 26],
+  [95, 28, 62, 26],
+  [22, 30, 44, 46],
+  [44, 46, 62, 26],
+  [44, 46, 90, 52],
+  [62, 26, 90, 52],
+  [4, 48, 22, 30],
+  [4, 48, 30, 74],
+  [44, 46, 70, 72],
+  [90, 52, 70, 72],
+  [3, 88, 30, 74],
+  [30, 74, 48, 92],
+  [48, 92, 70, 72],
+  [70, 72, 92, 86],
+];
+
 function App() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -477,7 +575,28 @@ function App() {
             </ul>
           </div>
           <div className="hero-visual reveal">
-            <canvas id="mesh" ref={canvasRef} />
+            <ResponsivePhoto
+              base="christina-wocintechchat-com-m-FVgECvTjlBQ-unsplash"
+              alt="Développeuse Nawle Tech travaillant sur un projet client"
+              className="hero-photo-main"
+              sizes="(max-width: 900px) 80vw, 420px"
+              priority
+            />
+            <ResponsivePhoto
+              base="annie-spratt-QckxruozjRg-unsplash"
+              alt="Équipe technique Nawle Tech en session de travail"
+              className="hero-photo-float hero-photo-float-1"
+              sizes="(max-width: 900px) 40vw, 220px"
+            />
+            <ResponsivePhoto
+              base="altumcode-PNbDkQ2DDgM-unsplash"
+              alt="Poste de développement Nawle Tech"
+              className="hero-photo-float hero-photo-float-2"
+              sizes="(max-width: 900px) 35vw, 190px"
+            />
+            <span className="hero-mesh-badge" aria-hidden="true">
+              <canvas id="mesh" ref={canvasRef} />
+            </span>
           </div>
         </div>
       </section>
@@ -563,25 +682,30 @@ function App() {
 
       <section className="about" id="about">
         <div className="wrap">
-          <div className="about-visual reveal">
-            <svg viewBox="0 0 400 300">
-              <defs>
-                <pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse">
-                  <circle cx="2" cy="2" r="1.6" fill="rgba(28,43,41,0.12)" />
-                </pattern>
-              </defs>
-              <rect width="400" height="300" fill="url(#dots)" />
-              <circle cx="90" cy="90" r="5" fill="#0F3D5C" />
-              <circle cx="230" cy="60" r="5" fill="#2FAF76" />
-              <circle cx="320" cy="150" r="5" fill="#0F3D5C" />
-              <circle cx="150" cy="200" r="5" fill="#2FAF76" />
-              <circle cx="270" cy="230" r="5" fill="#0F3D5C" />
-              <line x1="90" y1="90" x2="230" y2="60" stroke="rgba(15,61,92,0.28)" strokeWidth="1.4" />
-              <line x1="230" y1="60" x2="320" y2="150" stroke="rgba(15,61,92,0.28)" strokeWidth="1.4" />
-              <line x1="90" y1="90" x2="150" y2="200" stroke="rgba(15,61,92,0.28)" strokeWidth="1.4" />
-              <line x1="150" y1="200" x2="270" y2="230" stroke="rgba(15,61,92,0.28)" strokeWidth="1.4" />
-              <line x1="320" y1="150" x2="270" y2="230" stroke="rgba(15,61,92,0.28)" strokeWidth="1.4" />
+          <div className="network-visual reveal">
+            <svg className="network-lines" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true">
+              {NETWORK_LINES.map(([x1, y1, x2, y2], i) => (
+                <line key={i} x1={x1} y1={y1} x2={x2} y2={y2} />
+              ))}
             </svg>
+            {NETWORK_DOTS.map((d, i) => (
+              <span
+                key={i}
+                className={`network-dot network-dot-${d.c}`}
+                style={{ left: `${d.x}%`, top: `${d.y}%`, width: `${d.r}%` }}
+                aria-hidden="true"
+              />
+            ))}
+            {NETWORK_PHOTOS.map((p, i) => (
+              <ResponsivePhoto
+                key={i}
+                base={p.base}
+                alt={p.alt}
+                className={`network-photo ${p.cls}`}
+                sizes="(max-width: 900px) 30vw, 180px"
+                style={{ left: `${p.x}%`, top: `${p.y}%`, width: `${p.r}%` }}
+              />
+            ))}
           </div>
           <div className="reveal">
             <span className="eyebrow">Qui sommes-nous</span>
