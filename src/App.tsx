@@ -876,7 +876,7 @@ function App() {
               </p>
               <div className="brand-bar" aria-hidden="true"></div>
               <div className="footer-social" style={{ marginTop: 22 }}>
-                <a href="#" aria-label="LinkedIn">in</a>
+                <a href="https://www.linkedin.com/company/nawletech/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
                 <a href="#" aria-label="X">𝕏</a>
                 <a href="#" aria-label="Instagram">ig</a>
               </div>
