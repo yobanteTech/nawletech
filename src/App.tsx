@@ -778,6 +778,10 @@ function App() {
                   </div>
                 </div>
               </div>
+              <div className="footer-social" style={{ marginTop: 28 }}>
+                <a href="https://www.linkedin.com/company/nawletech.com/" target="_blank" rel="noopener" aria-label="LinkedIn" className="social-linkedin">in</a>
+                <a href="https://www.facebook.com/profile.php?id=61594120823150" target="_blank" rel="noopener" aria-label="Facebook" className="social-facebook">f</a>
+              </div>
             </div>
             <form
               action="https://formsubmit.co/ajax/nawletech@gmail.com"
@@ -876,9 +880,8 @@ function App() {
               </p>
               <div className="brand-bar" aria-hidden="true"></div>
               <div className="footer-social" style={{ marginTop: 22 }}>
-                <a href="https://www.linkedin.com/company/nawletech/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
-                <a href="#" aria-label="X">𝕏</a>
-                <a href="#" aria-label="Instagram">ig</a>
+                <a href="https://www.linkedin.com/company/nawletech.com/" target="_blank" rel="noopener" aria-label="LinkedIn" className="social-linkedin">in</a>
+                <a href="https://www.facebook.com/profile.php?id=61594120823150" target="_blank" rel="noopener" aria-label="Facebook" className="social-facebook">f</a>
               </div>
             </div>
             <div className="footer-col">
